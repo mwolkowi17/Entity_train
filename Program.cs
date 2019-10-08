@@ -40,6 +40,23 @@ namespace EFGetStarted
                         Content = "Taki mały wpis blogowy aby sprawdzić bazę danych."
                     });
                 db.SaveChanges();
+                Console.WriteLine("Wprowadź nowy tytuł wpisu:");
+                string a = Console.ReadLine();
+                Console.WriteLine("Wprowadź nowy wpis");
+                string b = Console.ReadLine();
+                blog.Posts.Add(
+                new Post
+                {
+                    PostId=3,
+                    Title = a,
+                    Content = b
+                });
+                db.SaveChanges();
+
+                var body = db.Posts
+                    .Single(b => b.PostId == 3).Content;
+                string body_string = Convert.ToString(body);
+                Console.WriteLine(body_string);
 
                 // Delete
                 // Console.WriteLine("Delete the blog");
